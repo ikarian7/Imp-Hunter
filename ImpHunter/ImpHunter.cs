@@ -14,7 +14,9 @@ namespace ImpHunter {
             Screen = new Point(800, 600);
             ApplyResolutionSettings();
 
-
+            // Add the game states and call the first one.
+            GameStateManager.AddGameState("Play", new PlayingState());
+            GameStateManager.SwitchTo("Play");
         }
 
     }

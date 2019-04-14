@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class SpriteGameObject : GameObject
 {
+    protected Color shade = Color.White;
     protected SpriteSheet sprite;
     protected Vector2 origin;
     protected float scale = 1f;
@@ -27,7 +28,7 @@ public class SpriteGameObject : GameObject
         {
             return;
         }
-        sprite.Draw(spriteBatch, this.GlobalPosition, origin, scale);
+        spriteBatch.Draw(sprite.Sprite, GlobalPosition, null, shade, 0, Origin, scale, SpriteEffects.None, 0);
     }
 
     public SpriteSheet Sprite
@@ -62,6 +63,14 @@ public class SpriteGameObject : GameObject
     public float Scale {
         get { return scale; }
         set { scale = value;  }
+    }
+
+    /// <summary>
+    /// Set the shade the sprite will be drawn in.
+    /// </summary>
+    public Color Shade {
+        get { return shade; }
+        set { shade = value; }
     }
 
     public bool Mirror
