@@ -3,6 +3,7 @@ using System;
 
 namespace ImpHunter {
     class PlayingState : GameObjectList{
+        Cannon cannon;
         Crosshair crosshair;
         Fortress fortress;
 
@@ -14,6 +15,9 @@ namespace ImpHunter {
         /// </summary>
         public PlayingState() {
             Add(new SpriteGameObject("spr_background"));
+
+            Add(cannon = new Cannon());
+            cannon.Position = new Vector2(GameEnvironment.Screen.X / 2, 490);
 
             Add(fortress = new Fortress());
 
