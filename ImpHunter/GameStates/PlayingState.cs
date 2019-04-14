@@ -4,6 +4,7 @@ using System;
 namespace ImpHunter {
     class PlayingState : GameObjectList{
         Crosshair crosshair;
+        Fortress fortress;
 
         private const int SHOOT_COOLDOWN = 20;
         private int shootTimer = SHOOT_COOLDOWN;
@@ -13,6 +14,8 @@ namespace ImpHunter {
         /// </summary>
         public PlayingState() {
             Add(new SpriteGameObject("spr_background"));
+
+            Add(fortress = new Fortress());
 
             // Always draw the crosshair last.
             Add(crosshair = new Crosshair());
