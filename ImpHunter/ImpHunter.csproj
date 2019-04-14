@@ -53,11 +53,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\spr_aim_big.png" />
+    <Content Include="Content\spr_aim_small.png" />
+    <Content Include="Content\spr_background.png" />
+    <Content Include="Content\spr_cannon_ball.png" />
+    <Content Include="Content\spr_cannon_barrel.png" />
+    <Content Include="Content\spr_cannon_carriage.png" />
+    <Content Include="Content\spr_cannon_carriage_bare.png" />
+    <Content Include="Content\spr_cannon_wheel.png" />
+    <Content Include="Content\spr_fireball.png" />
+    <Content Include="Content\spr_gameover.png" />
+    <Content Include="Content\spr_guard_idle.png" />
+    <Content Include="Content\spr_guard_shrug.png" />
+    <Content Include="Content\spr_guard_thumbup.png" />
+    <Content Include="Content\spr_imp_falling.png" />
+    <Content Include="Content\spr_imp_flying.png" />
+    <Content Include="Content\spr_imp_hit.png" />
+    <Content Include="Content\spr_titlescreen.png" />
+    <Content Include="Content\spr_tower.png" />
+    <Content Include="Content\spr_tower_bare.png" />
+    <Content Include="Content\spr_wall.png" />
+    <Content Include="Content\spr_wall_bare.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Content\GameFont.spritefont" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
