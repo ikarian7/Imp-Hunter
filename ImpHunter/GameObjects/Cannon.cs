@@ -7,7 +7,8 @@ namespace ImpHunter {
         PhysicsObject carriage, barrel;
 
         // The whole cannon wants to have an acceleration instead of just its children.
-        Vector2 acceleration; 
+        public Vector2 acceleration;
+        public float friction = 0.99f;
         
         /// <summary>
         /// Returns / sets the acceleration of the cannon.
@@ -51,6 +52,25 @@ namespace ImpHunter {
         /// <param name="inputHelper"></param>
         public override void HandleInput(InputHelper inputHelper) {
             base.HandleInput(inputHelper);
+            if (inputHelper.IsKeyDown(Keys.A)){
+                Acceleration += new Vector2(-1f, 0);
+             }
+
+            else if (!inputHelper.IsKeyDown(Keys.D))
+            {
+                Acceleration = new Vector2(0, 0);
+                
+            };
+
+            if(inputHelper.IsKeyDown(Keys.D)){
+                Acceleration += new Vector2(1f, 0);
+            }
+
+            else if (!inputHelper.IsKeyDown(Keys.A))
+            {
+                Acceleration = new Vector2(0, 0);
+                
+            };
         }
 
         /// <summary>
@@ -59,6 +79,11 @@ namespace ImpHunter {
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
+            velocity += acceleration;
+            velocity *= friction;
+           
+
+            
         }
         
         /// <summary>
