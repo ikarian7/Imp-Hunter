@@ -35,7 +35,7 @@ namespace ImpHunter {
 
             if (fortress.CollidesWithTowers(cannon.Carriage))
             {
-                cannon.Velocity *= -1;
+                cannon.Velocity *= -0.99f;
             }
         }
 
