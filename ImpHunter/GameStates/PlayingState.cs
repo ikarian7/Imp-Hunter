@@ -21,6 +21,7 @@ namespace ImpHunter {
 
             Add(fortress = new Fortress());
 
+
             // Always draw the crosshair last.
             Add(crosshair = new Crosshair());
         }
@@ -31,6 +32,11 @@ namespace ImpHunter {
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
+
+            if (fortress.CollidesWithTowers(cannon.Carriage))
+            {
+                cannon.Velocity *= -1;
+            }
         }
 
         /// <summary>
