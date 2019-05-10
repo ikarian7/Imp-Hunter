@@ -53,22 +53,22 @@ namespace ImpHunter {
         public override void HandleInput(InputHelper inputHelper) {
             base.HandleInput(inputHelper);
             if (inputHelper.IsKeyDown(Keys.A)){
-                Acceleration += new Vector2(-1f, 0);
+                acceleration += new Vector2(-1f, 0);
              }
 
             else if (!inputHelper.IsKeyDown(Keys.D))
             {
-                Acceleration = new Vector2(0, 0);
+                acceleration = new Vector2(0, 0);
                 
             };
 
             if(inputHelper.IsKeyDown(Keys.D)){
-                Acceleration += new Vector2(1f, 0);
+                acceleration += new Vector2(1f, 0);
             }
 
             else if (!inputHelper.IsKeyDown(Keys.A))
             {
-                Acceleration = new Vector2(0, 0);
+                acceleration = new Vector2(0, 0);
                 
             };
         }
@@ -81,7 +81,7 @@ namespace ImpHunter {
             base.Update(gameTime);
             velocity += acceleration;
             velocity *= friction;
-           
+            
 
             
         }
