@@ -4,7 +4,8 @@ using System;
 
 namespace ImpHunter {
     class Cannon : GameObjectList {
-        PhysicsObject carriage, barrel;
+        PhysicsObject carriage;
+        RotatingSpriteGameObject barrel;
 
         // The whole cannon wants to have an acceleration instead of just its children.
         public Vector2 acceleration;
@@ -21,7 +22,7 @@ namespace ImpHunter {
         /// <summary>
         /// Returns the barrel of the cannon.
         /// </summary>
-        public PhysicsObject Barrel {
+        public RotatingSpriteGameObject Barrel {
             get { return barrel; }
         }
 
@@ -39,7 +40,7 @@ namespace ImpHunter {
             carriage = new PhysicsObject("spr_cannon_carriage");
             carriage.Origin = carriage.Center;
 
-            Add(barrel = new PhysicsObject("spr_cannon_barrel"));
+            Add(barrel = new RotatingSpriteGameObject("spr_cannon_barrel"));
             barrel.Origin = new Vector2(barrel.Center.X, barrel.Center.Y + 20);
             barrel.Position = new Vector2(carriage.Position.X, carriage.Position.Y);
 
@@ -81,7 +82,6 @@ namespace ImpHunter {
             base.Update(gameTime);
             velocity += acceleration;
             velocity *= friction;
-            
 
             
         }

@@ -6,6 +6,8 @@ namespace ImpHunter {
         Cannon cannon;
         Crosshair crosshair;
         Fortress fortress;
+        GameObjects.Cannonball cannonball;
+
 
         private const int SHOOT_COOLDOWN = 20;
         private int shootTimer = SHOOT_COOLDOWN;
@@ -20,7 +22,7 @@ namespace ImpHunter {
             cannon.Position = new Vector2(GameEnvironment.Screen.X / 2, 490);
 
             Add(fortress = new Fortress());
-
+            Add(cannonball = new Cannonball());
 
             // Always draw the crosshair last.
             Add(crosshair = new Crosshair());
@@ -32,6 +34,8 @@ namespace ImpHunter {
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
+
+            cannon.Barrel.LookAt(crosshair, -90);
 
             if (fortress.CollidesWithTowers(cannon.Carriage))
             {
@@ -51,6 +55,7 @@ namespace ImpHunter {
             if (inputHelper.MouseLeftButtonPressed() && shootTimer > SHOOT_COOLDOWN) {
                 crosshair.Expand(SHOOT_COOLDOWN);
                 shootTimer = 0;
+                
             }
 
         }
